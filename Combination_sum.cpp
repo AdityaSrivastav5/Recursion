@@ -8,10 +8,13 @@ public:
             return;
         }
         if(candidates[ind]<=target){
+            //Pick the number or same number pick 
             ds.push_back(candidates[ind]);
             findcombination(ind,candidates,target-candidates[ind],ans,ds);
+            //remove element which u add in vector after its use is over (backtrack)
             ds.pop_back();
         }
+        //Not pick the number & just move forward
        findcombination(ind+1,candidates,target,ans,ds); 
     }
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
